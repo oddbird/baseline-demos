@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <body>
+    <div class="page">
+      <header role="banner">
+        <div class="main-heading">
+          <h1 class="title">Bird News Daily</h1>
+        </div>
+        <p class="tagline">
+          Building a Disclosure Navigation with Baseline features
+        </p>
+      </header>
+      <nav aria-label="Baseline University">
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <a href="#home">Home</a>
+          </li>
+          <li class="nav-list-item">
+            <button data-button="popover-trigger" popovertarget="about-menu">
+              About
+              <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    data-icon="triangle"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="triangle-gradient"
+                        x1="0%"
+                        x2="100%"
+                        y1="0%"
+                        y2="0%"
+                        gradientTransform="rotate(45)"
+                      >
+                        <stop
+                          class="gradient-start"
+                          offset="4%"
+                        />
+                        <stop
+                          class="gradient-end"
+                          offset="100%"
+                          
+                        />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M16 12L10 18V6L16 12Z"
+                      fill="url(#triangle-gradient)"
+                    ></path>
+                  </svg>
+              </button>
+
+            <ul aria-label="About" popover id="about-menu" class="menu">
+              <li>
+                <a href="#overview">Overview</a>
+              </li>
+              <li>
+                <a href="#our-mission">Our Mission</a>
+              </li>
+              <li>
+                <button
+                  popovertarget="facts-menu"
+                  data-button="popover-trigger"
+                >
+                  Facts
+  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    data-icon="triangle"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="triangle-gradient"
+                        x1="0%"
+                        x2="100%"
+                        y1="0%"
+                        y2="0%"
+                      >
+                        <stop
+                          class="gradient-start"
+                          offset="0%"
+                        />
+                        <stop
+                           class="gradient-end"
+                          offset="100%"
+                          
+                        />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M16 12L10 18V6L16 12Z"
+                      fill="url(#triangle-gradient)"
+                    ></path>
+                  </svg>
+                </button>
+                <ul aria-label="Facts" popover id="facts-menu">
+                  <li>
+                    <a href="#history">History</a>
+                  </li>
+                  <li>
+                    <a href="#staff">Staff</a>
+                  </li>
+                  <li>
+                    <a href="#awards">Awards</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <button
+                  popovertarget="local-events-menu"
+                  data-button="popover-trigger"
+                >
+                  Local Events
+                  <svg xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    data-icon="triangle"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+                    <defs>
+                      <linearGradient
+                        id="triangle-gradient"
+                        x1="0%"
+                        x2="100%"
+                        y1="0%"
+                        y2="0%"
+                      >
+                        <stop
+                          class="gradient-start"
+                          offset="0%"
+                         
+                        />
+                        <stop
+                          class="gradient-end"
+                          offset="100%"
+                          
+                        />
+                      </linearGradient>
+                    </defs>
+                    <path
+                      d="M16 12L10 18V6L16 12Z"
+                      fill="url(#triangle-gradient)"
+                    ></path>
+                  </button>
+                <ul
+                  aria-label="Local Events"
+                  id="local-events-menu"
+                  popover
+                  class="menu"
+                >
+                  <li>
+                    <a href="#bnd-birdwalks">
+                      BND Birdwalks
+                    </a>
+                  </li>
+                  <li>
+                    <a href="#live-talks">Live Talks</a>
+                  </li>
+                  <li>
+                    <a href="#meetups">Meetups</a>
+                  </li>
+                </ul>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-list-item">
+            <button
+              popovertarget="news-menu"
+              data-button="popover-trigger"
+            >
+              News
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+                data-icon="triangle"
+                width="32"
+                height="32"
+                fill="currentColor"
+              >
+                <path d="M16 12L10 18V6L16 12Z"></path><defs>
+                  <linearGradient
+                    id="triangle-gradient"
+                    x1="0%"
+                    x2="100%"
+                    y1="0%"
+                    y2="0%"
+                  >
+                    <stop
+                      class="gradient-start"
+                      offset="0%"
+                     
+                    />
+                    <stop
+                      class="gradient-end"
+                      offset="100%"
+                      
+                    />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M16 12L10 18V6L16 12Z"
+                  fill="url(#triangle-gradient)"
+                ></path>
+              </svg>
+            </button>
+            <ul
+              aria-label="News"
+              popover
+              id="news-menu"
+              class="menu"
+            >
+              <li>
+                <a href="#latest-headlines">Latest Headlines</a>
+              </li>
+              <li>
+                <button
+                  popovertarget="regional-menu"
+                  data-button="popover-trigger"
+                >
+                  Regional
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    aria-hidden="true"
+                    focusable="false"
+                    data-icon="triangle"
+                    width="32"
+                    height="32"
+                    fill="currentColor"
+                  >
+
+                      <linearGradient
+                        id="triangle-gradient"
+                        x1="0%"
+                        x2="100%"
+                        y1="0%"
+                        y2="0%"
+                      >
+                        <stop
+                          class="gradient-start"
+                          offset="0%"
+                         
+                        />
+                        <stop
+                          class="gradient-end"
+                          offset="100%"
+                          
+                        />
+                      </linearGradient>
+                    <path
+                      d="M16 12L10 18V6L16 12Z"
+                      fill="url(#triangle-gradient)"
+                    ></path>
+                  </svg>
+                </button>
+                <ul aria-label="Regional" id="regional-menu" popover class="menu">
+                  <li>
+                    <a href="#prairies">Prairies</a>
+                  </li>
+                  <li>
+                    <a href="#wetlands">Wetlands</a>
+                  </li>
+                  <li>
+                    <a href="#rural">Rural</a>
+                  </li>
+                </ul>
+              </li>
+              <li>
+                <a href="#sightings">Sightings</a>
+              </li>
+              <li>
+                <a href="#recordings">Birdsong Recordings</a>
+              </li>
+              <li>
+                <a href="#photo-essays">Photo Essays</a>
+              </li>
+              <li>
+                <a href="#sunday-interviews">The Sunday Interview</a>
+              </li>
+            </ul>
+          </li>
+          <li class="nav-list-item">
+            <button
+              popovertarget="resources-menu"
+              data-button="popover-trigger"
+            >
+              Resources
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+                data-icon="triangle"
+                width="32"
+                height="32"
+                fill="currentColor"
+              >
+                <defs>
+                  <linearGradient
+                    id="triangle-gradient"
+                    x1="0%"
+                    x2="100%"
+                    y1="0%"
+                    y2="0%"
+                  >
+                    <stop
+                      class="gradient-start"
+                      offset="0%"
+              
+                    />
+                    <stop
+                      class="gradient-end"
+                      offset="100%"
+                      
+                    />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M16 12L10 18V6L16 12Z"
+                  fill="url(#triangle-gradient)"
+                ></path>
+              </svg>
+            </button>
+            <ul id="resources-menu" popover aria-label="Resources" class="menu">
+              <li>
+                <a href="#clubs-and-organizations">Clubs &amp; Organizations</a>
+              </li>
+              <li>
+                <a href="#identification-guides">Identification Guides</a>
+              </li>
+              <li>
+                <a href="#podcast">BND Podcast</a>
+              </li>
+              <li>
+                <a href="#online-courses">Online Courses</a>
+              </li>
+              <li role="separator"></li>
+              <li>
+                <a href="#research">Research</a>
+              </li>
+              <li>
+                <a href="#trails">BND Trails</a>
+              </li>
+              <li>
+                <a href="#kids">BDN Kids</a>
+              </li>
+              <li>
+                <a href="#maps">Maps</a>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </nav>
+
+      <main>
+        <section aria-labelledby="id-page-title">
+          <h2 id="id-page-title" class="page_title">Bird News Daily</h2>
+        </section>
+      </main>
+
+      <footer role="contentinfo">
+        <p>&#169;2025 Bird News Daily</p>
+      </footer>
+    </div>
+    <script src="./script.js"></script>
+  </body>
+</html>
