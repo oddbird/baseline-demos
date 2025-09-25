@@ -74,7 +74,7 @@
   }
 
   .gradient-end {
-    stop-color: var(--disclosure-gradient-end, var(--gradient-end-default)) ;
+    stop-color: var(--disclosure-gradient-end, var(--gradient-end-default));
   }
 
   @media (forced-colors: active) {
@@ -84,7 +84,7 @@
 }
 
 a[aria-current],
-li:has(a[aria-current]) > button {
+li:has(a[aria-current])>button {
   --navlist-item-bg: var(--active);
   --link-focus-color: transparent;
 }
@@ -114,7 +114,7 @@ li:has(a[aria-current]) > button {
 }
 
 main {
-  padding: var(--gap) var(--double-gap);
+  padding: var(--gap) 1em;
 }
 
 footer {
@@ -161,23 +161,16 @@ footer {
     --accent-color: light-dark(oklch(66.3% 0.234 253), oklch(45.2% 0.054 302));
     --active: var(--color-primary);
     --text-color: light-dark(oklch(0% 0 none), oklch(100% 0 none));
-    --highlight-color: light-dark(
-      oklch(43.9% 0.132 250),
-      oklch(92.6% 0.132 250)
-    );
+    --highlight-color: light-dark(oklch(43.9% 0.132 250),
+        oklch(92.6% 0.132 250));
     --border-color: light-dark(oklch(62.5% 0 none), oklch(87% 0 none));
-    --outline-color: light-dark(
-      oklch(50.9% 0.37 323.38),
-      oklch(93.9% 0.37 323.38)
-    );
-
-    --color-primary: light-dark(
-      oklch(88.631% 0.02763 225),
-      oklch(43.3% 0.085 238)
-    );
+    --outline-color: light-dark(oklch(50.9% 0.37 323.38),
+        oklch(93.9% 0.37 323.38));
+    --color-primary: light-dark(oklch(88.631% 0.02763 225),
+        oklch(43.3% 0.085 238));
     --color-gray: light-dark(oklch(94.912% 0 none), oklch(41.7% 0 none));
-
-    --color-background: #fff;
+    --background-color: light-dark(oklch(91.141% 0.00652 16.403), oklch(22.635% 0.01351 291.83));
+    ;
 
     --sans-serif-font:
       Seravek, "Gill Sans Nova", Ubuntu, Calibri, "DejaVu Sans",
@@ -186,7 +179,7 @@ footer {
   }
 
   body {
-    background: var(--background);
+    background: var(--background-color);
     color: var(--text-color);
     font-size: var(--text-normal);
     font-family: var(--sans-serif-font);
@@ -212,7 +205,7 @@ footer {
     &:hover,
     &:focus {
       --link-text-color: var(--highlight-color);
-      --link-focus-color: var(--color-background);
+      --link-focus-color: var(--background-color);
       --underline-thickness: 0.18em;
     }
   }
@@ -231,7 +224,6 @@ footer {
     fill: var(--fill, currentColor);
     padding: 1px;
   }
-  
 }
 
 @layer reset {
