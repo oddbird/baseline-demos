@@ -1,19 +1,20 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./style.css" />
+    <title>Bird News Daily</title>
   </head>
   <body>
     <div class="page">
       <header role="banner">
-          <h1 class="title">Bird News Daily</h1>
+        <h1 class="title">Bird News Daily</h1>
         <p class="tagline">
           Building a Disclosure Navigation with Baseline features
         </p>
       </header>
-      <nav aria-label="Baseline University">
+      <nav aria-label="Bird News Daily">
         <ul class="nav-list">
           <li class="nav-list-item">
             <a href="#home">Home</a>
@@ -22,41 +23,34 @@
             <button data-button="popover-trigger" popovertarget="about-menu">
               About
               <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    aria-hidden="true"
-                    focusable="false"
-                    data-icon="triangle"
-                    width="32"
-                    height="32"
-                    fill="currentColor"
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                aria-hidden="true"
+                focusable="false"
+                data-icon="triangle"
+                width="32"
+                height="32"
+                fill="currentColor"
+              >
+                <defs>
+                  <linearGradient
+                    id="triangle-gradient"
+                    x1="0%"
+                    x2="100%"
+                    y1="0%"
+                    y2="0%"
+                    gradientTransform="rotate(45)"
                   >
-                    <defs>
-                      <linearGradient
-                        id="triangle-gradient"
-                        x1="0%"
-                        x2="100%"
-                        y1="0%"
-                        y2="0%"
-                        gradientTransform="rotate(45)"
-                      >
-                        <stop
-                          class="gradient-start"
-                          offset="4%"
-                        />
-                        <stop
-                          class="gradient-end"
-                          offset="100%"
-                          
-                        />
-                      </linearGradient>
-                    </defs>
-                    <path
-                      d="M16 12L10 18V6L16 12Z"
-                      fill="url(#triangle-gradient)"
-                    ></path>
-                  </svg>
-              </button>
+                    <stop class="gradient-start" offset="4%" />
+                    <stop class="gradient-end" offset="100%" />
+                  </linearGradient>
+                </defs>
+                <path
+                  d="M16 12L10 18V6L16 12Z"
+                  fill="url(#triangle-gradient)"
+                ></path>
+              </svg>
+            </button>
 
             <ul aria-label="About" popover id="about-menu" class="menu">
               <li>
@@ -71,7 +65,7 @@
                   data-button="popover-trigger"
                 >
                   Facts
-  <svg
+                  <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
@@ -89,15 +83,8 @@
                         y1="0%"
                         y2="0%"
                       >
-                        <stop
-                          class="gradient-start"
-                          offset="0%"
-                        />
-                        <stop
-                           class="gradient-end"
-                          offset="100%"
-                          
-                        />
+                        <stop class="gradient-start" offset="0%" />
+                        <stop class="gradient-end" offset="100%" />
                       </linearGradient>
                     </defs>
                     <path
@@ -124,7 +111,8 @@
                   data-button="popover-trigger"
                 >
                   Local Events
-                  <svg xmlns="http://www.w3.org/2000/svg"
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
                     aria-hidden="true"
                     focusable="false"
@@ -141,23 +129,16 @@
                         y1="0%"
                         y2="0%"
                       >
-                        <stop
-                          class="gradient-start"
-                          offset="0%"
-                         
-                        />
-                        <stop
-                          class="gradient-end"
-                          offset="100%"
-                          
-                        />
+                        <stop class="gradient-start" offset="0%" />
+                        <stop class="gradient-end" offset="100%" />
                       </linearGradient>
                     </defs>
                     <path
                       d="M16 12L10 18V6L16 12Z"
                       fill="url(#triangle-gradient)"
                     ></path>
-                  </button>
+                  </svg>
+                </button>
                 <ul
                   aria-label="Local Events"
                   id="local-events-menu"
@@ -165,9 +146,7 @@
                   class="menu"
                 >
                   <li>
-                    <a href="#bnd-birdwalks">
-                      BND Birdwalks
-                    </a>
+                    <a href="#bnd-birdwalks"> BND Birdwalks </a>
                   </li>
                   <li>
                     <a href="#live-talks">Live Talks</a>
@@ -180,10 +159,7 @@
             </ul>
           </li>
           <li class="nav-list-item">
-            <button
-              popovertarget="news-menu"
-              data-button="popover-trigger"
-            >
+            <button popovertarget="news-menu" data-button="popover-trigger">
               News
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -195,7 +171,8 @@
                 height="32"
                 fill="currentColor"
               >
-                <path d="M16 12L10 18V6L16 12Z"></path><defs>
+                <path d="M16 12L10 18V6L16 12Z"></path>
+                <defs>
                   <linearGradient
                     id="triangle-gradient"
                     x1="0%"
@@ -203,16 +180,8 @@
                     y1="0%"
                     y2="0%"
                   >
-                    <stop
-                      class="gradient-start"
-                      offset="0%"
-                     
-                    />
-                    <stop
-                      class="gradient-end"
-                      offset="100%"
-                      
-                    />
+                    <stop class="gradient-start" offset="0%" />
+                    <stop class="gradient-end" offset="100%" />
                   </linearGradient>
                 </defs>
                 <path
@@ -221,12 +190,7 @@
                 ></path>
               </svg>
             </button>
-            <ul
-              aria-label="News"
-              popover
-              id="news-menu"
-              class="menu"
-            >
+            <ul aria-label="News" popover id="news-menu" class="menu">
               <li>
                 <a href="#latest-headlines">Latest Headlines</a>
               </li>
@@ -246,32 +210,28 @@
                     height="32"
                     fill="currentColor"
                   >
-
-                      <linearGradient
-                        id="triangle-gradient"
-                        x1="0%"
-                        x2="100%"
-                        y1="0%"
-                        y2="0%"
-                      >
-                        <stop
-                          class="gradient-start"
-                          offset="0%"
-                         
-                        />
-                        <stop
-                          class="gradient-end"
-                          offset="100%"
-                          
-                        />
-                      </linearGradient>
+                    <linearGradient
+                      id="triangle-gradient"
+                      x1="0%"
+                      x2="100%"
+                      y1="0%"
+                      y2="0%"
+                    >
+                      <stop class="gradient-start" offset="0%" />
+                      <stop class="gradient-end" offset="100%" />
+                    </linearGradient>
                     <path
                       d="M16 12L10 18V6L16 12Z"
                       fill="url(#triangle-gradient)"
                     ></path>
                   </svg>
                 </button>
-                <ul aria-label="Regional" id="regional-menu" popover class="menu">
+                <ul
+                  aria-label="Regional"
+                  id="regional-menu"
+                  popover
+                  class="menu"
+                >
                   <li>
                     <a href="#prairies">Prairies</a>
                   </li>
@@ -321,16 +281,8 @@
                     y1="0%"
                     y2="0%"
                   >
-                    <stop
-                      class="gradient-start"
-                      offset="0%"
-              
-                    />
-                    <stop
-                      class="gradient-end"
-                      offset="100%"
-                      
-                    />
+                    <stop class="gradient-start" offset="0%" />
+                    <stop class="gradient-end" offset="100%" />
                   </linearGradient>
                 </defs>
                 <path
