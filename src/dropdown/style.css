@@ -18,9 +18,9 @@
 
   .menu {
     position-area: block-end span-inline-end;
+    inline-size: max-content;
     margin: 0;
-    min-width: anchor-size();
-    width: max-content;
+    min-inline-size: anchor-size();
 
     &:popover-open {
       display: grid;
@@ -30,10 +30,10 @@
       align-items: start;
       display: flex;
       flex-direction: row;
-      
+
     }
 
-    ul {
+    .sub-menu {
       position-area: span-block-end inline-end;
       position-try: block-end span-inline-end;
     }
@@ -93,9 +93,7 @@ body {
   display: grid;
   grid-template:
     "header" min-content
-    "nav" min-content 
-    "main" 1fr 
-    "footer" min-content / 100%;
+    "nav" min-content "main" 1fr "footer" min-content / 100%;
 }
 
 header {
@@ -149,7 +147,7 @@ footer {
   block-size: 1em;
   display: inline-block;
   inline-size: 1em;
-  overflow: visible; 
+  overflow: visible;
 }
 
 @layer reset, base;
@@ -157,8 +155,8 @@ footer {
 @layer base {
 
   :root {
-      color-scheme: light dark;
-    }
+    color-scheme: light dark;
+  }
 
   html {
     --text-small: clamp(0.938rem, 0.824rem + 0.568cqi, 1.25rem);
