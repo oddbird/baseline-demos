@@ -53,6 +53,19 @@ dialog {
       --dialog-opacity: 0;
     }
   }
+  #dialog-credit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    backdrop-filter: blur(1em);
+    color: white;
+    font-size: 0.75em;
+    margin: 0;
+    padding: 0.5em;
+    a {
+      color: white;
+    }
+  }
 }
 
 [data-img] {
