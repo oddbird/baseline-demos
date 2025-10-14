@@ -1,3 +1,17 @@
+@layer reset, base;
+
+@property --backdrop-gradient-start {
+  syntax: "<color>";
+  initial-value: oklch(33.894% 0.08072 246.33);
+  inherits: true;
+}
+
+@property --backdrop-gradient-end {
+  syntax: "<color>";
+  initial-value: oklch(45.859% 0.00345 174.48 / 0.3);
+  inherits: true;
+}
+
 dialog[open] {
   --opacity: 1;
   --translate: 0 0;
@@ -41,16 +55,16 @@ dialog {
 dialog[open]::backdrop {
   --backdrop-opacity: 1;
   --backdrop: linear-gradient(140deg,
-      var(--gradient-start),
-      var(--gradient-end));
+      var(--backdrop-gradient-start),
+      var(--backdrop-gradient-end));
   --filter: blur(2px);
+  animation: show-gradient var(--transition-timing-slower) forwards;
 }
 
 @starting-style {
   dialog[open]::backdrop {
     --filter: none;
     --backdrop-opacity: 0;
-    --backdrop: transparent;
   }
 }
 
@@ -59,10 +73,10 @@ dialog::backdrop {
   background: var(--backdrop, transparent);
   opacity: var(--backdrop-opacity, 0);
   transition:
-    background var(--transition-timing) cubic-bezier(0.2, -2, 0.8, 2),
+    background var(--transition-timing-slower) linear,
     opacity var(--transition-timing-slower) linear,
     display var(--transition-timing-slower) ease-out,
-    backdrop-filter var(--transition-timing) linear,
+    backdrop-filter var(--transition-timing-slower) linear,
     overlay var(--transition-timing-slower) ease-out;
   transition-behavior: allow-discrete;
 }
@@ -91,15 +105,13 @@ dialog::backdrop {
 }
 
 #privacy-popover:popover-open {
-  --opacity: 1;
   --popover-background: var(--color-highlight);
 }
 
 @starting-style {
   #privacy-popover:popover-open {
-    --opacity: 0;
     --popover-background: transparent;
-    height: 0;
+    inline-size: 0;
   }
 }
 
@@ -118,7 +130,7 @@ dialog::backdrop {
   text-align: center;
   text-wrap: balance;
   transition:
-    background var(--transition-timing-fast) ease-in,
+    background var(--transition-timing-fast) linear,
     opacity var(--transition-timing-fast) linear,
     overlay var(--transition-timing-fast) linear,
     display var(--transition-timing-fast) linear;
@@ -141,9 +153,6 @@ dialog::backdrop {
   --focus-ring: light-dark(var(--accent-color), var(--border-color));
   --color-highlight: light-dark(oklch(95.859% 0.00345 174.48),
       oklch(45.859% 0.00345 174.48));
-  --gradient-start: light-dark(oklch(66.894% 0.08072 246.33),
-      oklch(33.894% 0.08072 246.33));
-  --gradient-end: oklch(from var(--color-highlight) l c h / 0.3);
   --background-color: light-dark(white, oklch(22.635% 0.01351 291.83));
 }
 
@@ -202,7 +211,6 @@ section {
 
 [data-button~="favorite"] {
   --btn-padding-inline: 00.25em;
-  --btn-border: var(--accent-color);
 }
 
 form {
@@ -240,9 +248,6 @@ input[type="email"] {
     justify-content: center;
   }
 }
-
-
-@layer reset, base;
 
 @layer base {
   body {
@@ -310,14 +315,28 @@ input[type="email"] {
 
     &:hover,
     &:focus {
-      --btn-bg: var(--action);
+      --btn-bg: Canvas;
       --btn-border: var(--border-color);
-      scale: 0.98;
+      --fill: var(--accent-color);
+      --btn-text: var(--accent-color);
+      scale: .98;
     }
   }
 
   svg {
     fill: var(--fill, currentColor);
+  }
+
+  @keyframes show-gradient {
+    from {
+      --backdrop-gradient-start: oklch(45.859% 0.00345 174.48 / 0.3);
+      --backdrop-gradient-end: oklch(33.894% 0.08072 246.33 / 0.3);
+    }
+
+    to {
+      --backdrop-gradient-start: oklch(33.894% 0.08072 246.33);
+      --backdrop-gradient-end: oklch(45.859% 0.00345 174.48 / 0.3);
+    }
   }
 
 }

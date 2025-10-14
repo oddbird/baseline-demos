@@ -46,7 +46,7 @@
       </section>
     </article>
 
-    <dialog aria-labelledby="dialog-title" aria-describedby="description" aria-modal="true">
+    <dialog aria-labelledby="dialog-title" aria-describedby="description">
       <h2 id="dialog-title" data-heading="dialog">Yay! You found a favorite!
   </h2>
       <p id="description">Sign up with your e-mail address to start adding to your favorites list.</p>
@@ -60,11 +60,11 @@
             </svg>
 
           </button>
-          <div id="privacy-popover" popover role="tooltip">
+          <div id="privacy-popover" popover>
             <p> As with all of your information, we promise not to sell your e-mail address. </p>
           </div>
         </div>
-        <input type="email" id="email" autofocus required/>
+        <input type="email" id="email" autofocus required autocomplete="email"/>
         <div class="form-action">
           <button data-button> Sign Up </button>
           <button id="close" data-button> Close </button>
