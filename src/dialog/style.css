@@ -24,6 +24,10 @@ dialog[open] {
   @media (prefers-reduced-motion: reduce) {
     --translate: 0 0;
   }
+
+  @media (max-width: 700px) {
+    margin-block-end: calc(var(--gap) * 2);
+  }
 }
 
 dialog {
