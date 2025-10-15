@@ -125,11 +125,8 @@ dialog::backdrop {
   font-size: var(--text-small);
   opacity: var(--popover-opacity, 0);
   padding: calc(var(--gap) / 2);
-  position-anchor: --popover-trigger;
-  position-area: top center;
+  margin-block-end: calc(50vh + 15px);
   min-inline-size: 25ch;
-  inset: auto;
-  margin: unset;
   text-align: center;
   text-wrap: balance;
   transition:
@@ -140,6 +137,12 @@ dialog::backdrop {
     display var(--transition-timing-fast) linear;
   inset-block-end: var(--popoover-inset, -20px);
   transition-behavior: allow-discrete;
+
+  @supports (position-area: top center) {
+      position-anchor: --popover-trigger;
+      position-area: top center;
+      margin: unset;
+    }
 }
 
 /* demo styles */
