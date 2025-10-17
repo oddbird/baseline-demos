@@ -3,31 +3,31 @@
 @property --backdrop-gradient-start {
   syntax: "<color>";
   initial-value: oklch(33.894% 0.08072 246.33);
-  inherits: true;
+  inherits: false;
 }
 
 @property --backdrop-gradient-end {
   syntax: "<color>";
   initial-value: oklch(45.859% 0.00345 174.48 / 0.3);
-  inherits: true;
-}
-
-dialog[open] {
-  --opacity: 1;
-  --translate: 0;
-
-  @starting-style {
-    --opacity: 0;
-    --translate: 50px;
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    --translate: 0;
-  }
+  inherits: false;
 }
 
 dialog {
   --dialog-border: oklch(81.977% 0.14657 81.169);
+
+  &[open] {
+    --opacity: 1;
+    --translate: 0;
+
+    @starting-style {
+      --opacity: 0;
+      --translate: 50px;
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      --translate: 0;
+    }
+  }
 
   border: 2px solid var(--dialog-border);
   border-radius: 4px;
@@ -39,16 +39,28 @@ dialog {
   opacity: var(--opacity, 0);
   overflow: hidden;
   padding: calc(var(--gap) * 2);
-  transition:
-    opacity var(--transition-timing-slower) ease-in,
-    overlay var(--transition-timing-fast) linear,
-    display var(--transition-timing-fast) linear,
-    transform var(--transition-timing) linear;
+  transition: opacity var(--transition-timing) ease-in,
+  overlay var(--transition-timing-slower) linear,
+  display var(--transition-timing-slower) linear,
+  transform var(--transition-timing) linear;
   transition-behavior: allow-discrete;
   transform: translateY(var(--translate, 50px));
 
   [data-heading] {
     margin: 0;
+  }
+
+  &::backdrop {
+    backdrop-filter: var(--filter, none);
+    background: var(--backdrop, transparent);
+    opacity: var(--backdrop-opacity, 0);
+    transition:
+      background var(--transition-timing) linear,
+      opacity var(--transition-timing) linear,
+      display var(--transition-timing-slower) ease-out,
+      backdrop-filter var(--transition-timing) linear,
+      overlay var(--transition-timing-slower) ease-out;
+    transition-behavior: allow-discrete;
   }
 }
 
@@ -57,28 +69,13 @@ dialog[open]::backdrop {
   --backdrop: linear-gradient(140deg,
       var(--backdrop-gradient-start),
       var(--backdrop-gradient-end));
-  --filter: blur(2px);
+  --filter: blur(5px);
   animation: show-gradient var(--transition-timing-slower) forwards;
-}
 
-@starting-style {
-  dialog[open]::backdrop {
+  @starting-style {
     --filter: none;
     --backdrop-opacity: 0;
   }
-}
-
-dialog::backdrop {
-  backdrop-filter: var(--filter, none);
-  background: var(--backdrop, transparent);
-  opacity: var(--backdrop-opacity, 0);
-  transition:
-    background var(--transition-timing-slower) linear,
-    opacity var(--transition-timing-slower) linear,
-    display var(--transition-timing-slower) ease-out,
-    backdrop-filter var(--transition-timing-slower) linear,
-    overlay var(--transition-timing-slower) ease-out;
-  transition-behavior: allow-discrete;
 }
 
 [data-field] {
@@ -107,14 +104,14 @@ dialog::backdrop {
 #privacy-popover:popover-open {
   --popover-background: var(--color-highlight);
   --popover-opacity: 1;
-  --popoover-inset: 0;
+  --popover-inset: 0;
 }
 
 @starting-style {
   #privacy-popover:popover-open {
     --popover-background: transparent;
     --popover-opacity: 0;
-    --popoover-inset: -20px;
+    --popover-inset: -20px;
   }
 }
 
@@ -133,16 +130,16 @@ dialog::backdrop {
     background var(--transition-timing-fast) linear,
     opacity var(--transition-timing-fast) linear,
     inset-block-end var(--transition-timing-fast) linear,
-    overlay var(--transition-timing-fast) linear,
-    display var(--transition-timing-fast) linear;
-  inset-block-end: var(--popoover-inset, -20px);
+    overlay var(--transition-timing-slower) linear,
+    display var(--transition-timing-slower) linear;
+  inset-block-end: var(--popover-inset, -20px);
   transition-behavior: allow-discrete;
 
   @supports (position-area: top center) {
-      position-anchor: --popover-trigger;
-      position-area: top center;
-      margin: unset;
-    }
+    position-anchor: --popover-trigger;
+    position-area: top center;
+    margin: unset;
+  }
 }
 
 /* demo styles */
