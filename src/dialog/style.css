@@ -15,6 +15,24 @@
 dialog {
   --dialog-border: oklch(81.977% 0.14657 81.169);
 
+  border: 2px solid var(--dialog-border);
+  border-radius: 4px;
+  color: var(--text-color);
+  font-size: var(--text-small);
+  max-inline-size: min(80vw, 50ch);
+  max-block-size: min(95dvb, 100%);
+  margin: auto;
+  opacity: var(--opacity, 0);
+  overflow: hidden;
+  padding: calc(var(--gap) * 2);
+  transition: 
+    opacity var(--transition-timing) ease-in,
+    overlay var(--transition-timing-slower) linear,
+    display var(--transition-timing-slower) linear,
+    transform var(--transition-timing) linear;
+  transition-behavior: allow-discrete;
+  transform: translateY(var(--translate, 50px));
+
   &[open] {
     --opacity: 1;
     --translate: 0;
@@ -27,6 +45,19 @@ dialog {
     @media (prefers-reduced-motion: reduce) {
       --translate: 0;
     }
+  }
+
+  &::backdrop {
+    backdrop-filter: var(--filter, none);
+    background: var(--backdrop, transparent);
+    opacity: var(--backdrop-opacity, 0);
+    transition:
+      background var(--transition-timing) linear,
+      opacity var(--transition-timing) linear,
+      display var(--transition-timing-slower) ease-out,
+      backdrop-filter var(--transition-timing) linear,
+      overlay var(--transition-timing-slower) ease-out;
+    transition-behavior: allow-discrete;
   }
 
   &[open]::backdrop {
@@ -43,38 +74,8 @@ dialog {
     }
   }
 
-  border: 2px solid var(--dialog-border);
-  border-radius: 4px;
-  color: var(--text-color);
-  font-size: var(--text-small);
-  max-inline-size: min(80vw, 50ch);
-  max-block-size: min(95dvb, 100%);
-  margin: auto;
-  opacity: var(--opacity, 0);
-  overflow: hidden;
-  padding: calc(var(--gap) * 2);
-  transition: opacity var(--transition-timing) ease-in,
-  overlay var(--transition-timing-slower) linear,
-  display var(--transition-timing-slower) linear,
-  transform var(--transition-timing) linear;
-  transition-behavior: allow-discrete;
-  transform: translateY(var(--translate, 50px));
-
   [data-heading] {
     margin: 0;
-  }
-
-  &::backdrop {
-    backdrop-filter: var(--filter, none);
-    background: var(--backdrop, transparent);
-    opacity: var(--backdrop-opacity, 0);
-    transition:
-      background var(--transition-timing) linear,
-      opacity var(--transition-timing) linear,
-      display var(--transition-timing-slower) ease-out,
-      backdrop-filter var(--transition-timing) linear,
-      overlay var(--transition-timing-slower) ease-out;
-    transition-behavior: allow-discrete;
   }
 }
 
@@ -101,19 +102,7 @@ dialog {
   }
 }
 
-#privacy-popover {
-  &:popover-open {
-    --popover-background: var(--color-highlight);
-    --popover-opacity: 1;
-    --popover-inset: 0;
-
-    @starting-style {
-      --popover-background: transparent;
-      --popover-opacity: 0;
-      --popover-inset: -20px;
-    }
-  }
-
+[data-popover] {
   background: var(--popover-background, transparent);
   border: 1px solid var(--dialog-border);
   color: var(--text-color);
@@ -124,11 +113,12 @@ dialog {
   min-inline-size: 25ch;
   text-align: center;
   text-wrap: balance;
-  transition: background var(--transition-timing-fast) linear,
-  opacity var(--transition-timing-fast) linear,
-  inset-block-end var(--transition-timing-fast) linear,
-  overlay var(--transition-timing-slower) linear,
-  display var(--transition-timing-slower) linear;
+  transition: 
+    background var(--transition-timing-fast) linear,
+    opacity var(--transition-timing-fast) linear,
+    inset-block-end var(--transition-timing-fast) linear,
+    overlay var(--transition-timing-slower) linear,
+    display var(--transition-timing-slower) linear;
   inset-block-end: var(--popover-inset, -20px);
   transition-behavior: allow-discrete;
 
@@ -136,6 +126,18 @@ dialog {
     position-anchor: --popover-trigger;
     position-area: top center;
     margin: unset;
+  }
+
+  &:popover-open {
+    --popover-background: var(--color-highlight);
+    --popover-opacity: 1;
+    --popover-inset: 0;
+
+    @starting-style {
+      --popover-background: transparent;
+      --popover-opacity: 0;
+      --popover-inset: -20px;
+    }
   }
 }
 
@@ -302,6 +304,7 @@ input[type="email"] {
 
   [data-button] {
     --btn-bg: var(--accent-color);
+
     align-items: center;
     background: var(--btn-bg, Canvas);
     border: 1px solid var(--btn-border, transparent);
