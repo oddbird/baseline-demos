@@ -101,21 +101,19 @@ dialog {
   }
 }
 
-#privacy-popover:popover-open {
-  --popover-background: var(--color-highlight);
-  --popover-opacity: 1;
-  --popover-inset: 0;
-}
-
-@starting-style {
-  #privacy-popover:popover-open {
-    --popover-background: transparent;
-    --popover-opacity: 0;
-    --popover-inset: -20px;
-  }
-}
-
 #privacy-popover {
+  &:popover-open {
+    --popover-background: var(--color-highlight);
+    --popover-opacity: 1;
+    --popover-inset: 0;
+
+    @starting-style {
+      --popover-background: transparent;
+      --popover-opacity: 0;
+      --popover-inset: -20px;
+    }
+  }
+
   background: var(--popover-background, transparent);
   border: 1px solid var(--dialog-border);
   color: var(--text-color);
@@ -126,12 +124,11 @@ dialog {
   min-inline-size: 25ch;
   text-align: center;
   text-wrap: balance;
-  transition:
-    background var(--transition-timing-fast) linear,
-    opacity var(--transition-timing-fast) linear,
-    inset-block-end var(--transition-timing-fast) linear,
-    overlay var(--transition-timing-slower) linear,
-    display var(--transition-timing-slower) linear;
+  transition: background var(--transition-timing-fast) linear,
+  opacity var(--transition-timing-fast) linear,
+  inset-block-end var(--transition-timing-fast) linear,
+  overlay var(--transition-timing-slower) linear,
+  display var(--transition-timing-slower) linear;
   inset-block-end: var(--popover-inset, -20px);
   transition-behavior: allow-discrete;
 
@@ -315,8 +312,8 @@ input[type="email"] {
     font-weight: 600;
     padding: var(--btn-padding-block, 0.25em) var(--btn-padding-inline, var(--gap));
     transition:
-      background 200ms linear,
-      scale 200ms linear;
+      background var(--transition-timing-fast) linear,
+      scale var(--transition-timing-fast) linear;
 
     &:hover,
     &:focus {
