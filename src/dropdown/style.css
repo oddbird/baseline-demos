@@ -1,17 +1,56 @@
 @layer reset, theme, layout, components;
 
 @layer components {
-  [popover] {
-    /* Override default browser style */
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    margin: 0;
-    padding: 1rem 0;
-    inset: auto;
+  [data-menu] {
+    --popover-offset: -10px;
 
     &:popover-open {
+      --show-menu: 1;
+      --outer-popover-inset: 0;
+      --nested-popover-inset: 0;
+
       display: grid;
+
+      @starting-style {
+        --show-menu: 0;
+        --outer-popover-inset: var(--popover-offset);
+        --nested-popover-inset: var(--popover-offset);
+      }
     }
+
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    opacity: var(--show-menu, 0);
+    padding: 1rem 0;
+    position: absolute;
+    /* Override default popover browser styles */
+    margin: 0;
+    inset: auto;
+    transition: 
+      opacity var(--slow),
+      inset var(--fast),
+      overlay var(--fast) allow-discrete,
+      display var(--fast) allow-discrete;
+
+    li {
+      align-items: start;
+      display: flex;
+      flex-direction: row;
+    }
+  }
+
+  [data-menu~='outer'] {
+    position-area: block-end span-inline-end;
+    position-try-fallbacks: top, right;
+    inline-size: max-content;
+    min-inline-size: anchor-size();
+    inset-block-start: var(--outer-popover-inset, var(--popover-offset));
+  }
+
+  [data-menu~='nested'] {
+    position-area: span-block-end inline-end;
+    position-try: block-end span-inline-end;
+    inset-inline-start: var(--nested-popover-inset, var(--popover-offset));
   }
 
   .nav-list {
@@ -22,24 +61,6 @@
     list-style: none;
     margin: 0;
     padding: 0;
-
-    .menu {
-      position-area: block-end span-inline-end;
-      inline-size: max-content;
-      margin: 0;
-      min-inline-size: anchor-size();
-
-      li {
-        align-items: start;
-        display: flex;
-        flex-direction: row
-      }
-
-      .sub-menu {
-        position-area: span-block-end inline-end;
-        position-try: block-end span-inline-end;
-      }
-    }
 
     button:has(+ :popover-open) {
       --rotate-btn-icon: 90deg;
@@ -67,7 +88,7 @@
 
     margin-block-start: .25ch;
     rotate: var(--rotate-btn-icon, 0);
-    transition: rotate 0.2s ease-in;
+    transition: rotate var(--fast) ease-in;
 
     .gradient-start {
       stop-color: var(--disclosure-gradient-start, var(--gradient-start-default));
@@ -99,7 +120,7 @@
     display: inline-flex;
     font-size: inherit;
     padding: 0.5em 0.75em;
-    transition: color 0.3s ease-in-out;
+    transition: background var(--slow) ease-in, color var(--slow) ease-in-out;
   }
 
   [data-icon] {
@@ -159,6 +180,11 @@
     --gap: clamp(2cqi, 0.5lh, 5cqi);
     --quarter-gap: calc(var(--gap) / 4);
     --double-gap: calc(var(--gap) * 2);
+
+    /* Transition Timing */
+    --faster: 100ms;
+    --fast: 250ms;
+    --slow: 500ms;
 
     /* colors */
     color-scheme: light dark;
