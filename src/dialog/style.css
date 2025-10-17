@@ -29,6 +29,20 @@ dialog {
     }
   }
 
+  &[open]::backdrop {
+    --backdrop-opacity: 1;
+    --backdrop: linear-gradient(140deg,
+        var(--backdrop-gradient-start),
+        var(--backdrop-gradient-end));
+    --filter: blur(5px);
+    animation: show-gradient var(--transition-timing-slower) forwards;
+
+    @starting-style {
+      --filter: none;
+      --backdrop-opacity: 0;
+    }
+  }
+
   border: 2px solid var(--dialog-border);
   border-radius: 4px;
   color: var(--text-color);
@@ -61,20 +75,6 @@ dialog {
       backdrop-filter var(--transition-timing) linear,
       overlay var(--transition-timing-slower) ease-out;
     transition-behavior: allow-discrete;
-  }
-}
-
-dialog[open]::backdrop {
-  --backdrop-opacity: 1;
-  --backdrop: linear-gradient(140deg,
-      var(--backdrop-gradient-start),
-      var(--backdrop-gradient-end));
-  --filter: blur(5px);
-  animation: show-gradient var(--transition-timing-slower) forwards;
-
-  @starting-style {
-    --filter: none;
-    --backdrop-opacity: 0;
   }
 }
 
