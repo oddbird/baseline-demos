@@ -4,6 +4,20 @@
   [data-menu] {
     --popover-offset: -10px;
 
+    border: 1px solid var(--border-color);
+    border-radius: 3px;
+    opacity: var(--show-menu, 0);
+    padding: 1rem 0;
+    position: absolute;
+    /* Override default popover browser styles */
+    margin: 0;
+    inset: auto; 
+    transition:
+      opacity var(--slow),
+      inset var(--fast),
+      overlay var(--slow) allow-discrete,
+      display var(--slow) allow-discrete;
+
     &:popover-open {
       --show-menu: 1;
       --outer-popover-inset: 0;
@@ -13,24 +27,10 @@
 
       @starting-style {
         --show-menu: 0;
-        --outer-popover-inset: var(--popover-offset);
-        --nested-popover-inset: var(--popover-offset);
+        --outer-popover-inset: -10px;
+        --nested-popover-inset: -10px;
       }
     }
-
-    border: 1px solid var(--border-color);
-    border-radius: 3px;
-    opacity: var(--show-menu, 0);
-    padding: 1rem 0;
-    position: absolute;
-    /* Override default popover browser styles */
-    margin: 0;
-    inset: auto;
-    transition: 
-      opacity var(--slow),
-      inset var(--fast),
-      overlay var(--fast) allow-discrete,
-      display var(--fast) allow-discrete;
 
     li {
       align-items: start;
@@ -41,7 +41,7 @@
 
   [data-menu~='outer'] {
     position-area: block-end span-inline-end;
-    position-try-fallbacks: top, right;
+    position-try-fallbacks: flip-inline, span-inline-start, center, flip-block;
     inline-size: max-content;
     min-inline-size: anchor-size();
     inset-block-start: var(--outer-popover-inset, var(--popover-offset));
@@ -50,6 +50,7 @@
   [data-menu~='nested'] {
     position-area: span-block-end inline-end;
     position-try: block-end span-inline-end;
+    position-try-fallbacks: flip-inline, inline-start;
     inset-inline-start: var(--nested-popover-inset, var(--popover-offset));
   }
 
