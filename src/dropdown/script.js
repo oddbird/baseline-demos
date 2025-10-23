@@ -3,6 +3,7 @@ window.addEventListener("hashchange", () => {
 });
 
 const CONTAINS_PATH_TEXT = "Contains current page link";
+let shownBlock = 0;
 
 function handleRoute(newPage) {
   // Close all open popovers, would be unneeded if we actually had navigated to a new page
@@ -13,6 +14,14 @@ function handleRoute(newPage) {
   // Replace the content
   const heading = document.getElementById("id-page-title");
   heading.innerText = newPage;
+
+  const contentBlocks = document.querySelectorAll("[data-article]");
+  shownBlock = (shownBlock + 1) % contentBlocks.length;
+
+  contentBlocks.forEach((block, index) => {
+    if(index === shownBlock) block.removeAttribute('hidden');
+    else block.setAttribute('hidden', '');
+  });
 
   const formerLink = document.querySelector("[aria-current]");
   if (formerLink) formerLink.removeAttribute("aria-current");
