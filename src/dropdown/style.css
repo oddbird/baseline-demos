@@ -11,7 +11,7 @@
     position: absolute;
     /* Override default popover browser styles */
     margin: 0;
-    inset: auto; 
+    inset: auto;
     transition:
       opacity var(--slow),
       inset var(--fast),
@@ -29,6 +29,11 @@
         --show-menu: 0;
         --outer-popover-inset: -10px;
         --nested-popover-inset: -10px;
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        --outer-popover-inset: auto;
+        --nested-popover-inset: auto;
       }
     }
 
