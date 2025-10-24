@@ -25,7 +25,7 @@ dialog {
   opacity: var(--opacity, 0);
   overflow: hidden;
   padding: calc(var(--gap) * 2);
-  transition: 
+  transition:
     opacity var(--transition-timing) ease-in,
     overlay var(--transition-timing-slower) linear,
     display var(--transition-timing-slower) linear,
@@ -113,7 +113,7 @@ dialog {
   min-inline-size: 25ch;
   text-align: center;
   text-wrap: balance;
-  transition: 
+  transition:
     background var(--transition-timing-fast) linear,
     opacity var(--transition-timing-fast) linear,
     inset-block-end var(--transition-timing-fast) linear,
@@ -253,6 +253,12 @@ input[type="email"] {
   }
 }
 
+aside {
+  font-size: var(--text-small);
+  font-style: italic;
+  grid-area: aside;
+}
+
 @layer base {
   body {
     --text-small: clamp(0.938rem, 0.824rem + 0.568cqi, 1.25rem);
@@ -261,12 +267,20 @@ input[type="email"] {
     --text-xlarge: clamp(1.7rem, 0.784rem + 4.58cqi, 4.219rem);
     --gap: clamp(2cqi, 0.5lh, 5cqi);
     --double-gap: calc(var(--gap) * 2);
+    display: grid;
+    grid-template:
+      "main" 1fr
+      "aside" auto / 100%;
     container-type: inline-size;
     font-family: "Commissioner", sans-serif;
     font-size: var(--text-normal);
     font-weight: 250;
     line-height: 1.2;
     padding: var(--gap);
+  }
+
+  main {
+    grid-area: main;
   }
 
   [data-heading] {
@@ -325,6 +339,20 @@ input[type="email"] {
       --fill: var(--accent-color);
       --btn-text: var(--accent-color);
       scale: .98;
+    }
+  }
+
+  :any-link {
+    color: var(--link-text-color, var(--accent-color));
+    text-decoration: underline;
+    text-underline-offset: 0.18em;
+    text-decoration-color: var(--link-focus-color, var(--accent-color));
+    text-decoration-thickness: var(--underline-thickness, 0.1em);
+    transition: text-decoration-thickness 0.3s ease-in;
+
+    &:hover,
+    &:focus {
+      --underline-thickness: 0.18em;
     }
   }
 
