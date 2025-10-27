@@ -151,7 +151,7 @@
     grid-area: main;
     grid-template-columns: minmax(0, 60ch);
     margin-inline: auto;
-    padding: var(--gap) 1em;
+    padding: var(--gap) 1em calc(var(--gap) * 3);
   }
 
   nav {
