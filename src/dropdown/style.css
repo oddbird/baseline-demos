@@ -23,6 +23,7 @@
       --outer-popover-inset: 0;
       --nested-popover-inset: 0;
 
+      align-content: start;
       display: grid;
 
       @starting-style {
