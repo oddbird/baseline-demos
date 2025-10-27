@@ -47,7 +47,7 @@
 
   [data-menu~='outer'] {
     position-area: block-end span-inline-end;
-    position-try-fallbacks: flip-inline, span-inline-start, center, flip-block;
+    position-try-fallbacks: flip-inline;
     inline-size: max-content;
     min-inline-size: anchor-size();
     inset-block-start: var(--outer-popover-inset, var(--popover-offset));
@@ -55,8 +55,7 @@
 
   [data-menu~='nested'] {
     position-area: span-block-end inline-end;
-    position-try: block-end span-inline-end;
-    position-try-fallbacks: flip-inline, inline-start;
+    position-try: flip-inline, flip-start;
     inset-inline-start: var(--nested-popover-inset, var(--popover-offset));
   }
 
