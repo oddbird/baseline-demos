@@ -3,9 +3,11 @@
 @layer components {
   [data-menu] {
     --popover-offset: -10px;
-
+    align-content: start;
     border: 1px solid var(--border-color);
     border-radius: 3px;
+    box-shadow: 4px 8px 10px 0 var(--shadow),
+      0 6px 8px 0 var(--shadow);
     opacity: var(--show-menu, 0);
     padding: 1rem 0;
     position: absolute;
@@ -23,8 +25,12 @@
       --outer-popover-inset: 0;
       --nested-popover-inset: 0;
 
-      align-content: start;
       display: grid;
+
+      @supports not (position-area: block-end span-inline-end) {
+        --outer-popover-inset: auto;
+        --nested-popover-inset: auto;
+      }
 
       @starting-style {
         --show-menu: 0;
@@ -203,6 +209,7 @@
     --highlight-color: light-dark(oklch(43.9% 0.132 250),
         oklch(92.6% 0.132 250));
     --border-color: light-dark(oklch(62.5% 0 none), oklch(87% 0 none));
+    --shadow: light-dark(oklch(from var(--border-color) l c h / 0.753), oklch(24.899% 0.00564 285.917 / 0.83));
     --outline-color: light-dark(oklch(50.9% 0.37 323.38),
         oklch(93.9% 0.37 323.38));
     --color-primary: light-dark(oklch(88.631% 0.02763 225),
