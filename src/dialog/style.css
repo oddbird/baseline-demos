@@ -25,15 +25,16 @@ dialog {
   opacity: var(--opacity, 0);
   overflow: hidden;
   padding: calc(var(--gap) * 2);
+  transition:
+    opacity var(--transition-timing) ease-in,
+    overlay var(--transition-timing-slower),
+    display var(--transition-timing-slower),
+    transform var(--transition-timing) linear;
+  transition-behavior: allow-discrete;
+  transform: translateY(var(--translate, 50px));
 
-  @supports (overlay: auto) {
-    transition:
-      opacity var(--transition-timing) ease-in,
-      overlay var(--transition-timing-slower),
-      display var(--transition-timing-slower),
-      transform var(--transition-timing) linear;
-    transition-behavior: allow-discrete;
-    transform: translateY(var(--translate, 50px));
+  @supports not (overlay: auto) {
+    transition-duration: 0s;
   }
 
   &[open] {
