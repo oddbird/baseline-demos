@@ -25,13 +25,16 @@ dialog {
   opacity: var(--opacity, 0);
   overflow: hidden;
   padding: calc(var(--gap) * 2);
-  transition:
-    opacity var(--transition-timing) ease-in,
-    overlay var(--transition-timing-slower) linear,
-    display var(--transition-timing-slower) linear,
-    transform var(--transition-timing) linear;
-  transition-behavior: allow-discrete;
-  transform: translateY(var(--translate, 50px));
+
+  @supports (overlay: auto) {
+    transition:
+      opacity var(--transition-timing) ease-in,
+      overlay var(--transition-timing-slower),
+      display var(--transition-timing-slower),
+      transform var(--transition-timing) linear;
+    transition-behavior: allow-discrete;
+    transform: translateY(var(--translate, 50px));
+  }
 
   &[open] {
     --opacity: 1;
@@ -117,8 +120,8 @@ dialog {
     background var(--transition-timing-fast) linear,
     opacity var(--transition-timing-fast) linear,
     inset-block-end var(--transition-timing-fast) linear,
-    overlay var(--transition-timing-slower) linear,
-    display var(--transition-timing-slower) linear;
+    overlay var(--transition-timing-slower),
+    display var(--transition-timing-slower);
   inset-block-end: var(--popover-inset, -20px);
   transition-behavior: allow-discrete;
 
@@ -145,8 +148,8 @@ dialog {
 :root {
   interpolate-size: allow-keywords;
   color-scheme: light dark;
-  --transition-timing: 0.6s;
-  --transition-timing-slower: 1s;
+  --transition-timing: 300ms;
+  --transition-timing-slower: 400ms;
   --transition-timing-fast: 200ms;
   --text-color: light-dark(oklch(0% 0 none), oklch(100% 0 none));
   --border-color: light-dark(oklch(22.701% 0.06369 350.61),
