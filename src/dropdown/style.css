@@ -18,7 +18,11 @@
       opacity var(--slow),
       inset var(--fast),
       overlay var(--slow) allow-discrete,
-      display var(--slow) allow-discrete;
+      display var(--display-timing, var(--slow)) allow-discrete;
+
+    @supports not (overlay: auto) {
+      --display-timing: 0s;
+    }
 
     &:popover-open {
       --show-menu: 1;
