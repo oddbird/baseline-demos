@@ -28,14 +28,15 @@ dialog {
   transition:
     opacity var(--transition-timing) ease-in,
     overlay var(--transition-timing-slower),
-    display var(--transition-timing-slower),
+    display var(--display-timing, var(--transition-timing-slower)),
     transform var(--transition-timing) linear;
   transition-behavior: allow-discrete;
   transform: translateY(var(--translate, 50px));
 
-  @supports not (overlay: auto) {
-    transition-duration: 0s;
-  }
+   @supports not (overlay: auto) {
+    /* fix for Safari bug: https: //bugs.webkit.org/show_bug.cgi?id=289473*/
+    --display-timing: 0s; 
+  } 
 
   &[open] {
     --opacity: 1;
