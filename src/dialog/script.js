@@ -5,7 +5,7 @@ const dialog = document.querySelector('dialog');
 const closeDialogBtn = document.getElementById('close');
 const dialogForm = document.getElementById('dialog-form');
 
-openDialogBtns.forEach((openDialogBtn) => {
+openDialogBtns.forEach(openDialogBtn => {
   openDialogBtn.addEventListener('click', () => {
     dialog.showModal();
   });
