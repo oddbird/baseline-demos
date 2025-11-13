@@ -3,13 +3,20 @@ const openDialogBtns = document.querySelectorAll(
 );
 const dialog = document.querySelector('dialog');
 const closeDialogBtn = document.getElementById('close');
+const dialogForm = document.getElementById('dialog-form');
 
 openDialogBtns.forEach((openDialogBtn) => {
   openDialogBtn.addEventListener('click', () => {
     dialog.showModal();
   });
+});
 
-  closeDialogBtn.addEventListener('click', () => {
-    dialog.close();
-  });
+closeDialogBtn.addEventListener('click', () => {
+  dialog.close();
+});
+
+dialogForm.addEventListener('submit', (event) => {
+  console.log('Form submitted!');
+  event.preventDefault();
+  dialog.close();
 });

@@ -61,10 +61,13 @@
     </article>
 
     <dialog aria-labelledby="dialog-title" aria-describedby="description">
+      <form method="dialog">
+        <button data-button="close" type="submit">Close</button>
+      </form>
       <h2 id="dialog-title" data-heading="dialog">Yay! You found a favorite!
       </h2>
       <p id="description">Sign up with your e-mail address to start adding to your favorites list.</p>
-      <form method="dialog">
+      <form id="dialog-form">
         <div data-field>
           <label for="email">Enter your email</label>
           <button id="popover-trigger" data-button="popover-trigger icon" type="button" popovertarget="privacy-popover">
@@ -84,7 +87,7 @@
         <input type="email" id="email" autofocus required autocomplete="email" />
         <div class="form-action">
           <button data-button> Sign Up </button>
-          <button id="close" data-button> Close </button>
+          <button id="close" data-button type="button"> Close </button>
         </div>
       </form>
     </dialog>

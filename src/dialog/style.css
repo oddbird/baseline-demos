@@ -107,6 +107,12 @@ dialog {
   }
 }
 
+[data-button~="close"]{
+  position: absolute;
+  inset-inline-end: 0;
+  inset-block-start: 0;
+}
+
 [data-popover] {
   background: var(--popover-background, transparent);
   border: 1px solid var(--dialog-border);
@@ -222,7 +228,7 @@ section {
   --btn-padding-inline: 00.25em;
 }
 
-form {
+form#dialog-form {
   display: grid;
   gap: calc(var(--gap) / 2);
   grid-template: "label" auto "input" auto "action" auto/minmax(10ch, 100%);
