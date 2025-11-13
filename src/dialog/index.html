@@ -62,12 +62,20 @@
 
     <dialog aria-labelledby="dialog-title" aria-describedby="description">
       <form method="dialog">
-        <button data-button="close" type="submit">Close</button>
+        <button data-button="close icon" type="submit">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" focusable="false"
+              aria-hidden="true" fill="currentColor">
+            <path
+              d="M10.5859 12L2.79297 4.20706L4.20718 2.79285L12.0001 10.5857L19.793 2.79285L21.2072 4.20706L13.4143 12L21.2072 19.7928L19.793 21.2071L12.0001 13.4142L4.20718 21.2071L2.79297 19.7928L10.5859 12Z">
+            </path>
+          </svg>
+          <span class="visually-hidden">Close</span>
+        </button>
       </form>
       <h2 id="dialog-title" data-heading="dialog">Yay! You found a favorite!
       </h2>
       <p id="description">Sign up with your e-mail address to start adding to your favorites list.</p>
-      <form id="dialog-form">
+      <form id="dialog-form" data-layout="dialog-form">
         <div data-field>
           <label for="email">Enter your email</label>
           <button id="popover-trigger" data-button="popover-trigger icon" type="button" popovertarget="privacy-popover">
@@ -85,7 +93,7 @@
         <input type="email" id="email" autofocus required autocomplete="email" />
         <div class="form-action">
           <button data-button> Sign Up </button>
-          <button id="close" data-button type="button"> Close </button>
+          <button id="close" data-button type="button"> Cancel </button>
         </div>
       </form>
     </dialog>

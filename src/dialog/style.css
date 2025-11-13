@@ -82,6 +82,12 @@ dialog {
   [data-heading] {
     margin: 0;
   }
+
+  [data-button~="close"] {
+    position: absolute;
+    inset-inline-end: .5em;
+    inset-block-start: .5em;
+  }
 }
 
 [data-field] {
@@ -105,12 +111,6 @@ dialog {
   >svg {
     display: inline-block;
   }
-}
-
-[data-button~="close"]{
-  position: absolute;
-  inset-inline-end: 0;
-  inset-block-start: 0;
 }
 
 [data-popover] {
@@ -221,6 +221,7 @@ section {
   --icon-size: 1.2em;
   block-size: var(--icon-size);
   inline-size: var(--icon-size);
+  padding: 1px;
   vertical-align: middle;
 }
 
@@ -228,7 +229,7 @@ section {
   --btn-padding-inline: 00.25em;
 }
 
-form#dialog-form {
+[data-layout="dialog-form"] {
   display: grid;
   gap: calc(var(--gap) / 2);
   grid-template: "label" auto "input" auto "action" auto/minmax(10ch, 100%);
