@@ -39,9 +39,8 @@
   }
 
   &[aria-pressed="true"] {
-    --btn-bg: var(--background-color);
-    --btn-border: var(--active-color);
-    --btn-text: var(--text-color);
+    --btn-bg: var(--highlight-color);
+    --btn-border: var(--text-color);
   }
 }
 
