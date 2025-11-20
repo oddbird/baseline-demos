@@ -295,7 +295,7 @@
       &:focus {
         --input-border: transparent;
         --outline-offset: 0;
-        --focus-ring: oklch(from var(--border-color) l calc(c + 0.1) h);
+        --focus-ring: var(--border-color-bright);
       }
 
       &:user-invalid:not(:active, :focus) {
@@ -338,24 +338,39 @@
     --gap: clamp(2cqi, 0.5lh, 5cqi);
 
     --base-color: light-dark(var(--base-color-light), var(--base-color-dark));
-    --accent-color: oklch(from var(--base-color) l c calc(h + 120));
-    --complement-color: oklch(from var(--base-color) l c calc(h + 180));
-
-    --action-color: oklch(from var(--base-color) calc(l * 0.85) c h); 
-    --highlight-color: oklch(from var(--base-color) l c calc(h - 120));
-    --active-color: light-dark(oklch(from var(--action-color) calc(l * 1.15) c h),
-          oklch(from var(--action-color) calc(l * 0.9) c h));
-
-    --background-color: light-dark(oklch(95.5% 0 162),
-          oklch(22.635% 0.01351 291.83));
-    --surface-feature: light-dark(oklch(from var(--base-color) calc(l + 0.25) 0.202 h),
-      oklch(from var(--base-color) 80% 0.202 h));
-    --surface-light: color-mix(in oklab,
+    --base-color-darkened: oklch(from var(--base-color) calc(l * 0.85) c h);
+    --base-color-bright-light: oklch(from var(--base-color) calc(l + 0.25) 0.202 h);
+    --base-color-bright-dark: oklch(from var(--base-color) 80% 0.202 h);
+    
+    --base-mix-grey-50: color-mix(in oklab, var(--base-color), grey);
+    --background-mix-base-80: color-mix(in oklab,
       var(--background-color) 80%,
       var(--base-color));
 
+    --triadic-color-primary: oklch(from var(--base-color) l c calc(h + 120));
+    --triadic-color-secondary: oklch(from var(--base-color) l c calc(h - 120));
+   
+    --complement-color: oklch(from var(--base-color) l c calc(h + 180));
+  
+
+    --action-color: var(--base-color-darkened); 
+    --action-color-light: oklch(from var(--action-color) calc(l * 1.15) c h);
+    --action-color-dark: oklch(from var(--action-color) calc(l * 0.9) c h);
+
+    --accent-color: var(--triadic-color-primary);
+    --highlight-color: var(--triadic-color-secondary);
+    --active-color: light-dark(var(--action-color-light),
+          var(--action-color-dark));
+
+    --background-color: light-dark(oklch(95.5% 0 162),
+          oklch(22.635% 0.01351 291.83));
+    --surface-feature: light-dark(var(--base-color-bright-light),
+      var(--base-color-bright-dark));
+    --surface-light: var(--background-mix-base-80);
+
     --text-color: canvasText;
-    --border-color: color-mix(in oklab, var(--base-color), grey);;
+    --border-color: var(--base-mix-grey-50);
+    --border-color-bright: oklch(from var(--border-color) l calc(c + 0.1) h);
     --border-highlight: var(--complement-color);
 
     --serif-font: "Nimbus Mono PS", "Courier New", monospace;
