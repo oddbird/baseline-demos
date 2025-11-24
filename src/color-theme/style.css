@@ -164,7 +164,7 @@
       font-weight: 600;
       justify-content: center;
       padding: var(--btn-padding, 0.25em var(--gap));
-      transition: background 150ms ease-in;
+      transition: background var(--transition-timing-fast) ease-in;
   
       &:hover,
       &:focus {
@@ -185,11 +185,14 @@
     position: relative;
 
     &::details-content {
-        opacity: var(--show-details, 0);
-        block-size: var(--details-block, 0);
-        transition: content-visibility 500ms allow-discrete, opacity 500ms, block-size 1s ease-in;
-      }
-    
+      opacity: var(--show-details, 0);
+      block-size: var(--details-block, 0);
+      transition: 
+        content-visibility var(--transition-timing-slow) allow-discrete, 
+        opacity var(--transition-timing-slow), 
+        block-size var(--transition-timing-slow) ease-in;
+    }
+
     &[open]::details-content {
       --show-details: 1;
       --details-block: auto;
@@ -350,12 +353,15 @@
     accent-color: var(--accent-color);
     interpolate-size: allow-keywords;
 
+    /* sizing */
     --text-xsmall: clamp(0.748rem, 0.624rem + 0.254cqi, 1.25rem);
     --text-small: clamp(0.938rem, 0.824rem + 0.568cqi, 1.25rem);
     --text-normal: clamp(1.25rem, 1.023rem + 1.136cqi, 1.875rem);
     --text-large: clamp(1.35rem, 0.818rem + 2.659cqi, 2.813rem);
     --text-xlarge: clamp(1.7rem, 0.784rem + 4.58cqi, 4.219rem);
     --gap: clamp(2cqi, 0.5lh, 5cqi);
+
+    /* colors */
 
     --base-color: light-dark(var(--base-color-light), var(--base-color-dark));
     --base-color-darkened: oklch(from var(--base-color) calc(l * 0.85) c h);
@@ -393,9 +399,15 @@
     --border-color-bright: oklch(from var(--border-color) l calc(c + 0.1) h);
     --border-highlight: var(--complement-color);
 
+    /* Fonts, via https: //modernfontstacks.com/ */
     --serif-font: "Nimbus Mono PS", "Courier New", monospace;
     --sans-serif-font: Bahnschrift, "DIN Alternate", "Franklin Gothic Medium", "Nimbus Sans Narrow", 
       sans-serif-condensed, sans-serif;
+
+    /* timing */
+    --transition-timing: 250ms;
+    --transition-timing-fast: 150ms;
+    --transition-timing-slow: 500ms;
   }
 
   body {
@@ -403,8 +415,8 @@
     color: var(--text-color);
     font-family: var(--serif-font);
     transition:
-      background 200ms linear,
-      color 200ms linear;
+      background var(--transition-timing) linear,
+      color var(--transition-timing) linear;
   }
 
   h1 {
@@ -425,9 +437,9 @@
     text-decoration-thickness: var(--underline-thickness, 0.1em);
     text-underline-offset: var(--underline-offset, 0.15em);
     transition:
-      color 150ms,
-      text-decoration-color 150ms,
-      text-decoration-thickness 150ms ease-out;
+      color var(--transition-timing-fast),
+      text-decoration-color var(--transition-timing-fast),
+      text-decoration-thickness var(--transition-timing-fast) ease-out;
 
     &:hover,
     &:focus {
