@@ -155,7 +155,7 @@
     [data-button] {
       align-items: center;
       background: var(--btn-bg, var(--action-color));
-      border: 1px solid var(--btn-border, transparent);
+      border: medium solid var(--btn-border, transparent);
       color: var(--btn-text, var(--background-color));
       cursor: pointer;
       display: inline-flex;
@@ -173,7 +173,7 @@
   
       &[aria-pressed="true"] {
         --btn-bg: var(--highlight-color);
-        --btn-border: var(--text-color);
+        --btn-border: var(--border-color-bright);
       }
     }
 
