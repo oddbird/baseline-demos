@@ -33,10 +33,11 @@ const handleSchemeSelection = (event) => {
   }
 };
 
-window.onload = () => {
-  const colorPreference = getColorPreference();
-  setScheme(colorPreference);
+// Set the initial color scheme on page load
+const colorPreference = getColorPreference();
+setScheme(colorPreference);
 
+window.onload = () => {
   const themePicker = document.querySelector(`[data-options="theme"]`);
   const schemeButtons = themePicker?.querySelectorAll(`[data-scheme]`);
 
