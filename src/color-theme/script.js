@@ -34,11 +34,11 @@ const handleSchemeSelection = (event) => {
 };
 
 // Set the initial color scheme on page load
-const colorPreference = getColorPreference();
-setScheme(colorPreference);
+setScheme(getColorPreference());
 
 window.onload = () => {
-  setScheme(colorPreference);
+  // Ensure aria pressed state is correct once document is loaded
+  setScheme(getColorPreference());
   
   const themePicker = document.querySelector(`[data-options="theme"]`);
   const schemeButtons = themePicker?.querySelectorAll(`[data-scheme]`);
