@@ -87,15 +87,11 @@
   gap: calc(var(--gap) / 4);
   grid-template:
     "song" auto
-    "artist" auto
-    "rating" auto/ 100%;
+    "rating" auto
+    "artist" auto/ 100%;
   font-size: var(--text-small);
   justify-items: start;
-  padding: calc(var(--gap) / 2);
-
-  &:not(:last-child) {
-    padding-block-end: 0.5lh;
-  }
+  padding: min(var(--gap), 0.5lh);
 
   @container (width > 30em) {
     grid-template:
