@@ -3,6 +3,7 @@
 @layer type {
   html {
     --gap: round(up, 3vmin, 0.25lh);
+    --double-gap: calc(var(--gap) * 2);
     --tab-size: 2;
     --tab: calc(var(--tab-size, 2) * 1ch);
     line-height: 1.5;
@@ -91,13 +92,6 @@
     text-wrap: pretty;
   }
 
-  blockquote {
-    border-inline-start: medium solid;
-    font-size: var(--large);
-    font-style: italic;
-    padding-inline-start: var(--tab-size);
-  }
-
   figcaption {
     font-size: var(--small);
     font-style: italic;
@@ -119,14 +113,14 @@
     display: grid;
     gap: 1lh 0;
     grid-template-columns:
-      [full-start] var(--margin, var(--gap)) [pull-start] minmax(0, 1.5fr) [content-start] minmax(auto, 35em) [content-end] minmax(0, 1fr) [pull-end] var(--margin, var(--gap)) [full-end];
+      [full-start] var(--margin, var(--double-gap)) [pull-start] minmax(0, 1.5fr) [content-start] minmax(auto, 35em) [content-end] minmax(0, 1fr) [pull-end] var(--margin, var(--double-gap)) [full-end];
 
     @media (width > 45em) {
       --margin: 0;
       column-gap: var(--gap);
     }
 
-    >* {
+    > * {
       margin: unset;
       grid-column: content;
     }
@@ -146,7 +140,7 @@
     }
   }
 
-  main figure {
+  figure {
     grid-column: pull-start / content-end;
   }
 
@@ -166,10 +160,6 @@
     margin-inline: unset;
   }
 
-  blockquote {
-    margin-inline: var(--tab);
-  }
-
   p {
     margin-block: 0.5lh;
   }
@@ -177,10 +167,6 @@
   ol,
   ul {
     padding-inline-start: var(--tab);
-  }
-
-  dd {
-    margin-inline-start: var(--tab);
   }
 
   hr {
