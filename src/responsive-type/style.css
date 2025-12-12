@@ -3,7 +3,6 @@
 @layer type {
   html {
     --gap: round(up, 3vmin, 0.25lh);
-    --double-gap: calc(var(--gap) * 2);
     --tab-size: 2;
     --tab: calc(var(--tab-size, 2) * 1ch);
     line-height: 1.5;
@@ -113,7 +112,7 @@
     display: grid;
     gap: 1lh 0;
     grid-template-columns:
-      [full-start] var(--margin, var(--double-gap)) [pull-start] minmax(0, 1.5fr) [content-start] minmax(auto, 35em) [content-end] minmax(0, 1fr) [pull-end] var(--margin, var(--double-gap)) [full-end];
+      [full-start] var(--margin, var(--gap)) [pull-start] minmax(0, 1.5fr) [content-start] minmax(auto, 35em) [content-end] minmax(0, 1fr) [pull-end] var(--margin, var(--gap)) [full-end];
 
     @media (width > 45em) {
       --margin: 0;
