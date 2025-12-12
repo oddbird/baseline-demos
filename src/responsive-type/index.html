@@ -47,21 +47,35 @@
     <figure type-container>
       <img src="https://assets.codepen.io/15542/Screenshot+2025-12-05+at+10.09.15%E2%80%AFAM.jpg" alt="
 					 A graph from 0 to 2600 on the x axis, and 0 to 600 on the y axis.
-					 There's a solid line labeled font-size, 
+					 There's a solid line labeled font-size,
 					 starting at (0,17) and growing in a straight line to (2600,82).
 					 A dashed line is labeled 500%,
 					 starting at (0,500)
+           and swooping down in a curve,
+           so it falls below 200 before the right edge.
 					" />
       <figcaption type-set="small">
-        At the left edge, <code>500%</code> zoom is fully effective, but that
-        effectiveness drops away quickly as the browser size increases and
-        (un-zoomable) viewport units become a larger factor in the font-size.
-        When the browser is <code>2040px</code> wide, the
-        <code>500%</code> zoom is only able to achieve a
-        <code>200%</code> increase in font-size. Beyond that point,
-        <code>200%</code> effective font-zoom is no longer possible.
+        The horizontal axis represents viewport size,
+        from <code>0</code> to <code>2600px</code> wide.
+        The vertical axis for font-size is also in pixels,
+        showing the result of <code>calc(17px + 2.5vw)</code>.
+        The <code>500%</code> zoom line
+        uses the same viewport-width horizontal axis,
+        but treats the vertical axis as a percentage.
       </figcaption>
     </figure>
+
+    <p>
+      At the left edge of the graph (<code>0</code> viewport width),
+      <code>500%</code> zoom is fully effective.
+      But that effectiveness drops away quickly as the browser size increases,
+      and (unzoomable) viewport units become a larger factor in the font-size.
+      When the browser is <code>2040px</code> wide,
+      the maximum <code>500%</code> zoom is only able to achieve
+      a <code>200%</code> increase in font-size.
+      Beyond that point, <code>200%</code> effective font-zoom
+      is no longer possible.
+    </p>
 
     <p>
       By moving this calculation into a <code>clamp()</code> function, with
@@ -101,6 +115,9 @@
     <p>
       Read the full article on
       <a href="#">web.dev</a>
+      and explore the
+      <a href="https://www.desmos.com/calculator/xruperkze1">
+        interactive font/zoom graph</a>.
     </p>
     <hr />
   </main>
